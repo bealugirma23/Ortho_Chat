@@ -1,9 +1,8 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.selot">
-   <application
-        android:label="Selot"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application
+        android:label="som"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launch">
+        android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
             android:exported="true"
