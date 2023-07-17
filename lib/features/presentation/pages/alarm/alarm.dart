@@ -5,9 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:selot/features/presentation/Components/alarms.dart';
 import 'package:selot/features/presentation/pages/notice/Notice.dart';
-
-import '../../../../consts.dart';
-import '../../widgets/alarmdata.dart';
+import 'package:selot/features/presentation/pages/settins.dart';
 
 class Alarm extends StatefulWidget {
   const Alarm({super.key});
@@ -36,11 +34,16 @@ class MyStatefulWidget extends StatefulWidget {
   State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
 }
 
+// This is the type used by the popup menu below.
+enum SampleItem { itemOne, itemTwo, itemThree }
+
 /// AnimationControllers can be created with `vsync: this` because of TickerProviderStateMixin.
 class _MyStatefulWidgetState extends State<MyStatefulWidget>
     with SingleTickerProviderStateMixin {
+  SampleItem? selectedMenu;
   late String _timeString;
   late String _timedate;
+
   late TabController tabController;
 
   @override
@@ -48,8 +51,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
     tabController = TabController(length: 2, vsync: this);
     _timeString = "${DateTime.now().hour}:${DateTime.now().minute}";
     // DateFormat('MM/dd/yy') as String;
-    _timedate = "${DateTime.now().month}:${DateTime.now().day},${DateTime.now().year}";
-    
+    _timedate =
+        "${DateTime.now().month}:${DateTime.now().day},${DateTime.now().year}";
+
     Timer.periodic(Duration(seconds: 1), (Timer t) => _getCurrentTime());
     super.initState();
   }
@@ -57,7 +61,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
   void _getCurrentTime() {
     setState(() {
       _timeString = "${DateTime.now().hour}:${DateTime.now().minute} ";
-      _timedate = "${DateTime.now().month},${DateTime.now().day},${DateTime.now().year}";
+      _timedate =
+          "${DateTime.now().month},${DateTime.now().day},${DateTime.now().year}";
     });
   }
 
@@ -70,6 +75,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xff111928),
       //////////////////////////////////////
       ///
       ///////////////////////////////////
@@ -77,23 +83,32 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
         title: const Text(
           'Alarm',
           style: TextStyle(
-            color: Colors.black,
+            color: Color.fromARGB(255, 255, 255, 255),
           ),
         ),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         actions: <Widget>[
-          IconButton(
+          PopupMenuButton<SampleItem>(
             icon: const Icon(
               Icons.more_vert,
-              color: Colors.black,
+              color: Color.fromARGB(255, 255, 255, 255),
             ),
-            tooltip: 'Show Snackbar',
-            onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('This is a snackbar')));
+            initialValue: selectedMenu,
+            // Callback that sets the selected popup menu item.
+            onSelected: (SampleItem item) {
+              setState(() {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => settings()));
+              });
             },
-          ),
+            itemBuilder: (BuildContext context) => <PopupMenuEntry<SampleItem>>[
+              const PopupMenuItem<SampleItem>(
+                value: SampleItem.itemOne,
+                child: Text('Settings'),
+              ),
+            ],
+          )
         ],
       ),
       ////////////////////////////////////////////////////////////
@@ -104,7 +119,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
         width: double.infinity,
         height: double.infinity,
         decoration: const BoxDecoration(
-          color: Color(0xfff2f2f2),
+          color: Color(0xff111928),
         ),
         child: Column(
           children: <Widget>[
@@ -122,7 +137,14 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
                     width: double.infinity,
                     height: 166,
                     decoration: BoxDecoration(
-                      color: Color(0xffffc900),
+                      gradient: LinearGradient(
+                        begin: Alignment.topRight,
+                        end: Alignment.bottomLeft,
+                        colors: [
+                          Colors.blue,
+                          Colors.red,
+                        ],
+                      ),
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(33),
                         topRight: Radius.circular(33),
@@ -185,7 +207,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
                                           width: 180,
                                           height: 70,
                                           child: Text(
-                                            DateFormat.jm().format(DateTime.now()),
+                                            DateFormat.jm()
+                                                .format(DateTime.now()),
                                             style: GoogleFonts.inter(
                                               fontSize: 57,
                                               fontWeight: FontWeight.w700,
@@ -205,7 +228,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
                                           width: 110,
                                           height: 20,
                                           child: Text(
-                                            DateFormat.yMMMEd().format(DateTime.now()), 
+                                            DateFormat.yMMMEd()
+                                                .format(DateTime.now()),
                                             style: GoogleFonts.inter(
                                               fontSize: 16,
                                               fontWeight: FontWeight.w500,
@@ -253,7 +277,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
                               // height: 50,
                               width: MediaQuery.of(context).size.height,
                               decoration: BoxDecoration(
-                                  color: Color(0xffffc900),
+                                  color: Color(0xff111928),
                                   borderRadius: BorderRadius.circular(5)),
                               child: Column(
                                 children: [

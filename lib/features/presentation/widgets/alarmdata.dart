@@ -33,9 +33,8 @@ class _AlarmwidgetState extends State<Alarmwidget> {
         width: double.infinity,
         height: 60,
         decoration: BoxDecoration(
-          color: switchValue == true
-              ? const Color(0xffffffff)
-              : const Color(0xffF2F2F2),
+          color:
+              switchValue == true ? Color(0xff1F2A37) : const Color(0xffF2F2F2),
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
@@ -57,7 +56,7 @@ class _AlarmwidgetState extends State<Alarmwidget> {
                   fontSize: 24,
                   fontWeight: FontWeight.w700,
                   height: 1.2125,
-                  color: const Color(0xff363853),
+                  color: Color.fromARGB(255, 246, 246, 248),
                 ),
               ),
               const SizedBox(
@@ -77,7 +76,7 @@ class _AlarmwidgetState extends State<Alarmwidget> {
                             fontSize: 24,
                             fontWeight: FontWeight.w700,
                             height: 1.2125,
-                            color: const Color(0xff111113),
+                            color: Color.fromARGB(255, 255, 255, 255),
                           ),
                         ),
                         Container(
@@ -90,7 +89,7 @@ class _AlarmwidgetState extends State<Alarmwidget> {
                               fontSize: 13,
                               fontWeight: FontWeight.w700,
                               height: 1.2125,
-                              color: const Color(0xff363853),
+                              color: Color.fromARGB(255, 255, 255, 255),
                             ),
                           ),
                         ),

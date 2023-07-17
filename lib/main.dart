@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:selot/features/presentation/pages/alarm/alarm.dart';
-import 'package:selot/features/presentation/pages/bottom_nav.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,6 +23,4 @@ class MyApp extends StatelessWidget {
       home: const Alarm(),
     );
   }
-  
-
 }
