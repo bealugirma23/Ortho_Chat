@@ -38,28 +38,28 @@ dependencies:
   flutter_switch: ^0.3.2
   flutter_native_splash: ^2.2.16
   intl: ^0.18.1
+  alarm: ^1.1.7
+  permission_handler: ^10.4.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  
-  
 flutter_native_splash:
-  color: "#ffffff"
+  color: '#ffffff'
   image: assets/icooo.png
   #branding: assets/icooo.png
-  color_dark: "#121212"
+  color_dark: '#121212'
   image_dark: assets/icooo.png
   #branding_dark: assets/icooo.png
 
   android_12:
     image: assets/icooo.png
-    icon_background_color: "#ffffff"
+    icon_background_color: '#ffffff'
     image_dark: assets/icooo.png
-    icon_background_color_dark: "#121212"
+    icon_background_color_dark: '#121212'
 
-  web: false    
+  web: false
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -73,7 +73,6 @@ flutter_native_splash:
 
 # The following section is specific to Flutter packages.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

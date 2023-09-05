@@ -1,4 +1,4 @@
-import AlarmApp from "./AlarmApp";
+import AlarmApp from './AlarmApp';
 
 function App() {
   return (

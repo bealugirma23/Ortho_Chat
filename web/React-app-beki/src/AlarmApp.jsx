@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 const alarmTimes = [
-  { time: "06:00", label: "Morning" },
-  { time: "09:00", label: "9 AM" },
-  { time: "12:00", label: "Noon" },
-  { time: "15:00", label: "3 PM" },
-  { time: "18:00", label: "6 PM" },
+  { time: '06:00', label: 'Morning' },
+  { time: '09:00', label: '9 AM' },
+  { time: '12:00', label: 'Noon' },
+  { time: '15:00', label: '3 PM' },
+  { time: '18:00', label: '6 PM' },
 ];
 
 const AlarmApp = () => {
@@ -48,17 +48,17 @@ const AlarmCard = ({ time, label, isActive, isNext }) => {
   return (
     <div
       className={`flex items-center bg-${
-        isEnabled ? "green-400" : "gray-300"
+        isEnabled ? 'green-400' : 'gray-300'
       } ${
-        isNext ? "border-b-4 border-blue-500" : ""
+        isNext ? 'border-b-4 border-blue-500' : ''
       } px-4 py-6 m-2 rounded-lg w-64`}
     >
-      <div className={`text-lg font-bold p-2 ${isNext ? "text-blue-500" : ""}`}>
+      <div className={`text-lg font-bold p-2 ${isNext ? 'text-blue-500' : ''}`}>
         {label}
       </div>
       <div
         className={`pb-2 text-sm pt-3 ${
-          isEnabled ? "text-white" : "text-gray-500"
+          isEnabled ? 'text-white' : 'text-gray-500'
         }`}
       >
         {time}
@@ -84,7 +84,7 @@ const getNextAlarmTime = () => {
   const currentMinute = new Date().getMinutes();
 
   for (let i = 0; i < alarmTimes.length; i++) {
-    const [alarmHour, alarmMinute] = alarmTimes[i].time.split(":");
+    const [alarmHour, alarmMinute] = alarmTimes[i].time.split(':');
     if (
       currentHour < parseInt(alarmHour) ||
       (currentHour === parseInt(alarmHour) &&
