@@ -1,16 +1,10 @@
-# selot
+# Ortho_Chat 
+This is a flutter social media app project for orthodox church groups to manage their meetings and conversations it removes all distractions of the world and let them focus on their religion
+============
+ [![GitHub Issues](https://img.shields.io/github/issues/IgorAntun/node-chat.svg)](https://github.com/IgorAntun/node-chat/issues) [![Current Version](https://img.shields.io/badge/version-0.0.1-green.svg)](https://github.com/IgorAntun/node-chat) 
 
-A new Flutter project.
+---
 
-## Getting Started
+for any one who's willing to contribute it's open
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
